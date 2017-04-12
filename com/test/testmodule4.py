@@ -54,20 +54,40 @@ for grid in all_grids:
 
 print('\n'.join(answers))
 '''
+'''
 #!/bin/python3
 
 from itertools import permutations
 
 
-s_len = 10
-s = "beabeefeab"
+def controlForSeq(a):
+    for i in range(1,len(a)) :
+        if (a[i-1] == a[i]) :
+            return False
+
+    return True
+
+#s_len = 10
+#s = "beabeefeab"
+#Test case 4
+s_len = 375
+s = "uyetuppelecblwipdsqabzsvyfaezeqhpnalahnpkdbhzjglcuqfjnzpmbwprelbayyzovkhacgrglrdpmvaexkgertilnfooeazvulykxypsxicofnbyivkthovpjzhpohdhuebazlukfhaavfsssuupbyjqdxwwqlicbjirirspqhxomjdzswtsogugmbnslcalcfaxqmionsxdgpkotffycphsewyqvhqcwlufekxwoiudxjixchfqlavjwhaennkmfsdhigyeifnoskjbzgzggsmshdhzagpznkbahixqgrdnmlzogprctjggsujmqzqknvcuvdinesbwpirfasnvfjqceyrkknyvdritcfyowsgfrevzon"
 uniqeS = ''.join(set(s))
 
-for i in permutations(uniqeS,3):
-    tS = s.replace(c for c in i, "");
-    print(tS)
+tS = []
+for i in permutations(uniqeS,len(uniqeS)-2):
+    cStr = ''.join([c for c in s if c not in i])
+    if (controlForSeq(cStr)) :
+        tS.append(cStr)
 
+print(len(max(tS)))
+'''
+'''
 
+n = 5
+for i in range(1,n+1):
+    print(('#'*i).rjust(n,' '))
 
+'''
 
 
