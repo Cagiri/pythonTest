@@ -89,5 +89,45 @@ for i in range(1,n+1):
     print(('#'*i).rjust(n,' '))
 
 '''
+'''
+s = "(()(test))"
+def controlParanthesis(cStr):
+    return (s.count(("(")) - s.count((")"))) == 0 
+'''
+'''
+1 2 3
+4 5 6
+7 8 9
+
+1 2 3 4
+5 6 7 8
+9 10 11 12
+13 14 15 16
+'''
+'''ARRAY ROTATOR
+n=1
+#lst = [[1,2,3],[4,5,6],[7,8,9]]
+lst = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+lstT = list(map(list, zip(*lst)))
+
+print(lstT)
+lenT = (len(lstT))//2
+for i in range(0,lenT+1) :
+    if(n==1) :
+        temp = lstT[i]
+        lstT[i] = lstT[len(lstT)-1-i]
+        lstT[len(lstT)-1-i] = temp
+    else :
+        lensd = len(lstT[i])//2
+        for j in range(0,lensd) :
+            temp = lstT[i][j]
+            lstT[i][j] = lstT[i][len(lstT[i])-1-j] 
+            lstT[i][len(lstT[i])-1-j] = temp
+            
+    
+
+print(lstT)
+'''
+
 
 
