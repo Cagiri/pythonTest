@@ -123,11 +123,102 @@ for i in range(0,lenT+1) :
             temp = lstT[i][j]
             lstT[i][j] = lstT[i][len(lstT[i])-1-j] 
             lstT[i][len(lstT[i])-1-j] = temp
-            
-    
 
 print(lstT)
 '''
+'''
+s = "denemeaemened"
 
+def isPalindromic(s) :
+    for i in range(len(s)-1//2):
+        if (not (s[i] == s[len(s)-1-i])) :
+            return False
+        
+    return True
 
+print(isPalindromic(s))
+'''
+'''
+#!/bin/python3
+
+import sys
+from itertools import permutations
+
+def controlForSeq(a):
+    for i in range(1,len(a)) :
+        if (a[i-1] == a[i]) :
+            return False
+
+    return True
+
+#s_len = 10
+#s = "beabeefeab"
+#Test case 4
+#s_len = 375
+#s = "uyetuppelecblwipdsqabzsvyfaezeqhpnalahnpkdbhzjglcuqfjnzpmbwprelbayyzovkhacgrglrdpmvaexkgertilnfooeazvulykxypsxicofnbyivkthovpjzhpohdhuebazlukfhaavfsssuupbyjqdxwwqlicbjirirspqhxomjdzswtsogugmbnslcalcfaxqmionsxdgpkotffycphsewyqvhqcwlufekxwoiudxjixchfqlavjwhaennkmfsdhigyeifnoskjbzgzggsmshdhzagpznkbahixqgrdnmlzogprctjggsujmqzqknvcuvdinesbwpirfasnvfjqceyrkknyvdritcfyowsgfrevzon"
+#Test case 15
+s_len = 63
+s = "pvmaigytciycvjdhovwiouxxylkxjjyzrcdrbmokyqvsradegswrezhtdyrsyhg"
+# output -> 6
+uniqeS = ''.join(set(s))
+
+tS = []
+for i in permutations(uniqeS,2):
+    cStr = ''.join([c for c in s if c in i])
+    if (controlForSeq(cStr)) :
+        tS.append(cStr)
+
+print(0 if (tS is None or len(tS)<=0 )else len(max(tS, key=len)))k
+ '''
+'''Marc's Cakewalk
+n = 3
+calories = list(map(int, "1 3 2".strip().split(' ')))
+calories.sort(key=None, reverse=True)
+
+totalMile = 0
+for i in range(len(calories)):
+    totalMile += calories[i]*(2**i)
+    
+print(totalMile)
+'''
+'''Luck Balance
+f = open('C:\\Temp\\test.txt', 'r+')
+n,k = map(int,f.readline().strip(' ').split())
+lc = [list(map(int,f.readline().strip().split(" "))) for _ in range(n) ]
+
+lc.sort(key=lambda x: (x[1],x[0]), reverse=False)
+
+ttL = 0
+i=0
+while (len(lc) > 0) :
+    if (lc[i][1] == 0 ) :
+        ttL += lc[i][0]
+    else :
+        if(len(lc)>k) :
+            ttL -= lc[i][0]
+        else :
+            ttL += lc[i][0]
+            
+    lc.remove(lc[i])
+
+print(ttL)
+'''
+'''Maximum Perimeter Triangle
+#test 4 
+#20
+#9 2015 5294 58768 285 477 72 13867 97 22445 48 36318 764 8573 183 3270 81 1251 59 95094
+#output -> 72 81 97
+
+n = int("20")
+l = sorted(int(i) for i in "9 2015 5294 58768 285 477 72 13867 97 22445 48 36318 764 8573 183 3270 81 1251 59 95094".split())
+
+i = n-3
+while i >= 0 and (l[i] + l[i+1] <= l[i+2]) :
+    i -= 1
+
+if i >= 0 :
+    print(l[i],l[i+1],l[i+2])
+else :
+    print(-1)
+'''
 
