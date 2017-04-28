@@ -221,4 +221,48 @@ if i >= 0 :
 else :
     print(-1)
 '''
+'''Equal Stacks
+n1,n2,n3 = "5 3 4".strip().split(' ')
+n1,n2,n3 = [int(n1),int(n2),int(n3)]
+h1 = [int(h1_temp) for h1_temp in "3 2 1 1 1".strip().split(' ')]
+h2 = [int(h2_temp) for h2_temp in "4 3 2".strip().split(' ')]
+h3 = [int(h3_temp) for h3_temp in "1 1 4 1".strip().split(' ')]
 
+def sumOfArray(arr,ind):
+    return int(sum(arr[ind:arr.__len__()]))
+ 
+h1s=[sumOfArray(h1,i) for i in range(n1)]
+h2s=[sumOfArray(h2,i) for i in range(n2)]
+h3s=[sumOfArray(h3,i) for i in range(n3)]
+
+cl=[]
+if n1 == min(n1,n2,n3) :
+    cl = h1s
+elif n2 == min(n1,n2,n3):
+    cl = h2s
+else :
+    cl = h3s
+
+for i in cl:
+    if (i in h1s and i in h2s and i in h3s) :
+        break
+    
+print(i) 
+'''  
+''' Equal Stacks exp. didnt code it
+from collections import deque
+
+def read_queue():
+    return deque(map(int, input().strip().split()))
+
+nstacks = 3
+stacks = [deque([3,2,1,1,1]),deque([4,3,2]),deque([1,1,4,1])]
+heights = list(map(sum, stacks))
+
+while len(set(heights)) > 1:
+    ihighest = heights.index(max(heights))
+    heights[ihighest] -= stacks[ihighest].popleft()
+
+print(heights[0])
+'''     
+    
