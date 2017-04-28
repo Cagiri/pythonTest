@@ -9,6 +9,8 @@ for i in range(n) :
         count = (int(count+1) if txt[j] == txt[min(j+1,len(txt)-1)] else int(count) )
     print(count)
 '''
+import math
+from _collections import deque
 '''
 from _functools import reduce
 from _operator import  add
